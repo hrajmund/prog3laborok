@@ -20,7 +20,7 @@ public class Main extends Commands{
             }else if(cmd[0].equals("exit")){
                 exit(cmd);
             }else if(cmd[0].equals("list")){
-                list(beers);
+                list(cmd, beers);
             }else if(cmd[0].equals("load")){
                 beers = load(cmd,"Serialized");
             }
