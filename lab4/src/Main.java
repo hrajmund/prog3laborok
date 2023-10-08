@@ -22,7 +22,15 @@ public class Main extends Commands{
             }else if(cmd[0].equals("list")){
                 list(cmd, beers);
             }else if(cmd[0].equals("load")){
-                beers = load(cmd,"Serialized");
+                beers = load(cmd,wd);
+            }else if(cmd[0].equals("save")){
+                save(cmd, wd, beers);
+            }else if(cmd[0].equals("search")){
+                search(cmd, beers);
+            }else if(cmd[0].equals("find")){
+                find(cmd,beers);
+            }else if(cmd[0].equals("delete")){
+                delete(cmd,beers);
             }
         }
 
