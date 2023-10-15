@@ -4,6 +4,7 @@ import java.io.*;
 public class Main {
     static ArrayDeque<Integer> stack = new ArrayDeque<>();
     static HashMap<String, Integer> labels = new HashMap<>();
+    static HashMap<String, Integer> vars = new HashMap<>();
     static int pc = 0;
     public static void main(String[] args) throws IOException{
         HashMap<String, Command> map = fillHashMap();
@@ -23,18 +24,17 @@ public class Main {
                 System.out.println(e);
             }
 
+            for(String item : lines){
+                System.out.println(item);
+            }
+
             while(pc != lines.size()){
                 String[] cmd = lines.get(pc).split(" ");
                 Command c = map.get(cmd[0]);
                 c.execute(cmd);
                 pc++;
             }
-            /*
-            for(String item : lines){
-                String[] cmd = item.split(" ");
-                Command c = map.get(cmd[0]);
-                c.execute(cmd);
-            }*/
+
 
         }else if(args.length == 0){
             String wd = System.getProperty("user.dir");
@@ -69,6 +69,8 @@ public class Main {
         map.put("onzero", new OnZero());
         map.put("onnonzero", new OnNonZero());
         map.put("onnegative", new OnNegative());
+        map.put("store", new Store());
+        map.put("load", new Load());
 
 
         return map;

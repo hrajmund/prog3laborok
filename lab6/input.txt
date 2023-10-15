@@ -1,11 +1,23 @@
-push 0
+read
+store max
+push 1
 #ciklus
+read
+dup
+load max
+sub
+push -1
+mult
+onnegative #kisebb
+dup
+store max
+#kisebb
+pop
 push 1
 add
-dup
-write
 dup
 push 10
 sub
 onnonzero #ciklus
-exit
+load max
+write
